@@ -97,10 +97,10 @@ void dibujar(){
 //	Curva c(puntos,5);
 	//c.bezier();
 //	c.castelljau();
-	Punto c0(50,40),c1(90,40),c2(100,60),c3(150,70);
-	Punto puntos[]={c0,c1,c2,c3};
-	Curva uwu(puntos,4);
-	uwu.bsplineCubica();
+//	Punto c0(50,40),c1(90,40),c2(100,60),c3(150,70);
+//	Punto puntos[]={c0,c1,c2,c3};
+//	Curva uwu(puntos,4);
+//	uwu.bsplineCubica();
 	
 	glFlush();
 }
