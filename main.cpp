@@ -83,10 +83,10 @@ void dibujar(){
 	reflejada.draw();
 	*/
 	//------------------------curva
-//	Punto c0(30,30),c1(-30,30),c2(-30,-30),c3(30,-30);
-//	Punto puntos[]={c0,c1,c2,c3};
-	//Circulo uwwu(30,30,30,20);
-	//uwwu.dibujarcirculo();
+Punto c0(30,30),c1(-30,30),c2(-30,-30),c3(30,-30);
+	Punto puntos[]={c0,c1,c2,c3};
+Circulo uwwu(30,30,30,20);
+uwwu.dibujarcirculo();
 //	Punto c0(30,30),c1(40,100),c2(50,30),c3(200,200);
 //	Punto puntos[]={c0,c1,c2,c3};
 //	Poligonos fu(puntos,4);
@@ -103,9 +103,10 @@ void dibujar(){
 //	uwu.bsplineCubica();
 	
 	glFlush();
+	glutSwapBuffers();
 }
 void iniciar(){
-	glClearColor(0,0,0,0);//fondo blanco
+	glClearColor(1,1,1,0);//fondo blanco
 	glPointSize(3);//tamaño de punto
 	
 	gluOrtho2D(600,0,600,0);

@@ -33,6 +33,6 @@ class Circulo{
        // glVertex2f(300-(x + cx),300-( y + cy));//output vertex
 		
     }
-    glEnd();
+    //glEnd();
 	}
 };
