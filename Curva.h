@@ -10,8 +10,8 @@ class Curva
 		void dibujarlineas(){
 			glBegin(GL_LINES);
 				for(int i=0;i<npuntos-1;i++){
-					glVertex2i(300-puntos[i].getx(),300-puntos[i].gety());
-					glVertex2i(300-puntos[i+1].getx(),300-puntos[i+1].gety());
+					glVertex2i(puntos[i].getx(),puntos[i].gety());
+					glVertex2i(puntos[i+1].getx(),puntos[i+1].gety());
 				}
 			glEnd();	
 			
