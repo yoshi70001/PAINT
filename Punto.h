@@ -39,7 +39,7 @@ class Punto {
   		void draw() {
   			glBegin(GL_POINTS);
 				glColor3f(r,g,b);// color del punto
-  				glVertex2d (300-x, 300-y);
+  				glVertex2d (x,y);
   			glEnd ();
   		}
   		

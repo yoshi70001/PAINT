@@ -24,6 +24,7 @@ class Linea {
 		
 		glVertex2i(origen.getx(),origen.gety());
 		glVertex2i(destino.getx(),destino.gety());
+		
 	glEnd();
 	}
 	Linea trasladar(Punto Tx, Punto Ty){
