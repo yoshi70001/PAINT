@@ -19,6 +19,92 @@ class Linea {
 			g=g_;
 			b=b_;					
 		}
+		//-------------------------------------------
+		void DDA(){
+	int x0=origen.getx();
+	int y0=origen.gety();
+	int x1=destino.getx();
+	int y1=destino.gety();
+
+   float x,y,xs,ys;
+   float dx,dy,steps;
+   dx=x1-x0;
+   dy=y1-y0;
+
+   x=x0;
+   y=y0;
+   if(abs(dx)>abs(dy)){
+   	steps=abs(dx);
+   }else{
+   	steps=abs(dy);
+   }
+
+   if(steps==0){
+   	//dibujar punto
+
+   Punto z(round(x),round(y));
+   z.draw();
+   }
+   xs=dx/steps;
+   ys=dy/steps;
+   for(int i=0;i<=steps;i++){
+   	//dibujar puntos
+   	 Punto h(round(x),round(y));
+   h.draw();
+   	x=x+xs;
+   	y=y+ys;
+   }
+   }
+
+void Bres(){
+	int x0=origen.getx();
+	int y0=origen.gety();
+	int x1=destino.getx();
+	int y1=destino.gety();
+	glClear(GL_COLOR_BUFFER_BIT);
+	glColor3f(1,1,0);
+
+
+	glPointSize(3);
+	glBegin(GL_POINTS);
+	int x,y, dx,dy,xfinal,p,inE,inNE;
+	dx=abs(x1-x0);
+	dy=abs(y1-y0);
+	p=2*dy-dx;
+	inE=2*dy;
+	inNE=2*(dy-dx);
+
+	if(x0>x1){
+		x=x1;
+		y=y1;
+		xfinal=x0;
+	}else{
+		x=x0;
+		y=y0;
+		xfinal=x1;
+	}
+	while(x<=xfinal){
+		//dibujar puntos
+		Punto d(x,y);
+   d.draw();
+		x=x+1;
+		if(p<0){
+			p=p+inE;
+		}else{
+			y=y+1;
+			p=p+inNE;
+		}
+	}
+	glEnd();
+   
+}
+		
+		
+		
+		
+		
+		
+		//---------------------------------------------
 	void draw(){
 	glBegin(GL_LINES);
 		

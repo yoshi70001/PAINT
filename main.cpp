@@ -6,9 +6,12 @@
 #include <math.h>
 #include "Poligonos.h"
 #include "Circulo.h"
+#include <vector>
+
  using namespace std;
  Punto absd[20];
- int opcion;
+  int opcion;
+  vector  <int>memoria;
 void coordenadas(){
 	glClear(GL_COLOR_BUFFER_BIT);
 	glColor3f(1,1,0);// color
@@ -85,26 +88,31 @@ void mi_Mouse(int button, int state, int x, int y) {
 		opcion=4;
 		NUMPOINTS = 0;
 	}
-    
     NUMPOINTS++;
     
   }
 }
+
+
+
+
+
+
 void dibujar(){
 	glClear(GL_COLOR_BUFFER_BIT);
-	botones();
-		absd[NUMPOINTS+1].draw();
-	
+	botones();	
+	glutSolidSphere(100,100, 100);
 	if(NUMPOINTS == 2 && opcion==1) {
         glColor3f(1.0,1.0,0.0);
-        Linea uwd(absd[0], absd[1]);
-           uwd.draw();
+        Linea uw(absd[0], absd[1]);
+           uw.DDA();
         NUMPOINTS = 0;
     }
     if(NUMPOINTS == 5 && opcion==2) {
         glColor3f(1.0,0.5,0.0);
         Curva uwd(absd,5);
-           uwd.bezier();
+         //uwd.bezier();
+         uwd.castelljau();
         NUMPOINTS = 0;
     }
     if(NUMPOINTS == 4 && opcion == 3){
@@ -117,8 +125,16 @@ void dibujar(){
 		cout<<distancia;
     	Circulo ads(absd[0].getx(),absd[0].gety(),distancia,200);
     	ads.dibujarcirculo();
+    	cout<<absd[0].getx()<<" "<<absd[1].gety()<<"\n";
     	NUMPOINTS = 0;
 	}
+	if(NUMPOINTS == 4 && opcion==5) {
+        glColor3f(1.0,0.5,0.0);
+        Curva uwd(absd,5);
+           uwd.bezier();
+         // uwd.castelljau();
+        NUMPOINTS = 0;
+    }
     
     glFlush();
 }
