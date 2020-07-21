@@ -91,7 +91,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit5]
-FileName=modelo.cpp
+FileName=Punto.h
 CompileCpp=1
 Folder=
 Compile=1

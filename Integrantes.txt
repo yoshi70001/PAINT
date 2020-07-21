@@ -1,0 +1,9 @@
+Proyecto pain en c++ con la libreria freeglut
+
+
+integrantes:
+	espinoza espinoza jorge luis emmanuel
+	quispe quispe victor manuel
+	izquierdo rojas luis angel
+
+

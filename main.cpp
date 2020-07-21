@@ -72,23 +72,26 @@ void mi_Mouse(int button, int state, int x, int y) {
     absd[NUMPOINTS].sety((float)y);
     int n1=absd[NUMPOINTS].getx();
 	int n2=absd[NUMPOINTS].gety();
-    if(n1<=20 && n1>>0 && n2<=20 && n2>=0){
+    if(n1<=20 && n1>=0 && n2<=20 && n2>=0){
     	opcion=1;
     	NUMPOINTS = 0;
 	}
-	if(n1<=20 && n1>>0 && n2<=50 && n2>=30){
+	if(n1<=20 && n1>=0 && n2<=50 && n2>=30){
 		opcion=2;
 		NUMPOINTS = 0;
 	}
-	if(n1<=20 && n1>>0 && n2<=80 && n2>=60){
+	if(n1<=20 && n1>=0 && n2<=80 && n2>=60){
 		opcion=3;
 		NUMPOINTS = 0;
 	}
-	if(n1<=20 && n1>>0 && n2<=110 && n2>=90){
+	if(n1<=20 && n1>=0 && n2<=110 && n2>=90){
 		opcion=4;
 		NUMPOINTS = 0;
 	}
-    NUMPOINTS++;
+	if(n1<=800 && n1>=30){
+		NUMPOINTS++;
+	}
+    
     
   }
 }
