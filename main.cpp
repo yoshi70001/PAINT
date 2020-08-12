@@ -9,7 +9,7 @@
 #include <vector>
 
  using namespace std;
- Punto absd[100];
+ Punto absd[20];
   int opcion;
   vector  <int>memoria;
 void coordenadas(){
@@ -95,24 +95,24 @@ void mi_Mouse(int button, int state, int x, int y) {
     
   }
 }
-
-
-
-
-
-
+void area_de_trabajo(){
+	glColor3f(1.0,1.0,1.0);
+	glBegin (GL_POLYGON);
+  		glVertex2f (800,800);
+		glVertex2f (30, 800);
+		glVertex2f (30, 0);
+		glVertex2f (800, 0);
+  	glEnd ();
+}
 void dibujar(){
 	glClear(GL_COLOR_BUFFER_BIT);
-	botones();	
-	glutSolidSphere(100,100, 100);
-
+	botones();
+	area_de_trabajo();
 	if(NUMPOINTS == 2 && opcion==1) {
         glColor3f(1.0,1.0,0.0);
         Linea uw(absd[0], absd[1]);
            uw.DDA();
-           
-		   NUMPOINTS = 0;
-
+        NUMPOINTS = 0;
     }
     if(NUMPOINTS == 5 && opcion==2) {
         glColor3f(1.0,0.5,0.0);
@@ -121,8 +121,8 @@ void dibujar(){
          uwd.castelljau();
         NUMPOINTS = 0;
     }
-    if(NUMPOINTS == 3 && opcion == 3){
-    	Poligonos ads(absd,3);
+    if(NUMPOINTS == 4 && opcion == 3){
+    	Poligonos ads(absd,4);
     	ads.dibujarpoligono();
     	NUMPOINTS = 0;
 	}
@@ -145,7 +145,7 @@ void dibujar(){
     glFlush();
 }
 void iniciar(){
-	glClearColor(0,0,0,0);//fondo blanco
+	glClearColor(0,0,0,0);
 	glPointSize(4);//tamaño de punto
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
