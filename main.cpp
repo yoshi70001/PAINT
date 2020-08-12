@@ -9,7 +9,7 @@
 #include <vector>
 
  using namespace std;
- Punto absd[20];
+ Punto absd[100];
   int opcion;
   vector  <int>memoria;
 void coordenadas(){
@@ -105,11 +105,14 @@ void dibujar(){
 	glClear(GL_COLOR_BUFFER_BIT);
 	botones();	
 	glutSolidSphere(100,100, 100);
+
 	if(NUMPOINTS == 2 && opcion==1) {
         glColor3f(1.0,1.0,0.0);
         Linea uw(absd[0], absd[1]);
            uw.DDA();
-        NUMPOINTS = 0;
+           
+		   NUMPOINTS = 0;
+
     }
     if(NUMPOINTS == 5 && opcion==2) {
         glColor3f(1.0,0.5,0.0);
@@ -118,8 +121,8 @@ void dibujar(){
          uwd.castelljau();
         NUMPOINTS = 0;
     }
-    if(NUMPOINTS == 4 && opcion == 3){
-    	Poligonos ads(absd,4);
+    if(NUMPOINTS == 3 && opcion == 3){
+    	Poligonos ads(absd,3);
     	ads.dibujarpoligono();
     	NUMPOINTS = 0;
 	}
