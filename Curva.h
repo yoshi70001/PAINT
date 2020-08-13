@@ -1,17 +1,18 @@
 #include "iostream"
+#include <vector>
 using namespace std;
 class Curva
 {
 	private:
-		Punto puntos[20];
+		Punto puntos_[20];
 		int npuntos=0;
 		GLfloat x=0,y=0;
 		Punto pt;
 		void dibujarlineas(){
 			glBegin(GL_LINES);
 				for(int i=0;i<npuntos-1;i++){
-					glVertex2i(puntos[i].getx(),puntos[i].gety());
-					glVertex2i(puntos[i+1].getx(),puntos[i+1].gety());
+					glVertex2i(puntos_[i].getx(),puntos_[i].gety());
+					glVertex2i(puntos_[i+1].getx(),puntos_[i+1].gety());
 				}
 			glEnd();	
 			
@@ -52,10 +53,10 @@ class Curva
 		
 		
 public:
-		Curva(Punto *pts,int n_){
+		Curva(vector<Punto>&puntos,int n_){
 			npuntos=n_;
 			for(int i=0;i<npuntos;i++){
-				puntos[i]=pts[i];
+				puntos_[i]=puntos[i];
 			}
 			dibujarlineas();
 		}
@@ -65,8 +66,8 @@ public:
 				x=0;y=0;
 				for(int i=0;i<npuntos;i++){
 					GLfloat B=bernstein(npuntos-1,i,t);
-					x=x+puntos[i].getx()*B;
-					y=y+puntos[i].gety()*B;
+					x=x+puntos_[i].getx()*B;
+					y=y+puntos_[i].gety()*B;
 				}
 				pt.set(x,y);
 				pt.draw();
@@ -100,16 +101,16 @@ public:
     	for(double j = 0.0;j <= 1.0; j+=0.01){
     		float hg=0;
     		float gh=0;
-    		hg=pow((1-j),tamano-1)*puntos[0].getx();
-    		gh=pow((1-j),tamano-1)*puntos[0].gety();
+    		hg=pow((1-j),tamano-1)*puntos_[0].getx();
+    		gh=pow((1-j),tamano-1)*puntos_[0].gety();
     		
     		for(int grado=1;grado<=tamano-2;grado++){
-    			hg=hg+((tamano-1)*pow((1-j),tamano-1-grado)*pow(j,grado)*puntos[grado].getx());
-	            gh=gh+((tamano-1)*pow((1-j),tamano-1-grado)*pow(j,grado)*puntos[grado].gety());
+    			hg=hg+((tamano-1)*pow((1-j),tamano-1-grado)*pow(j,grado)*puntos_[grado].getx());
+	            gh=gh+((tamano-1)*pow((1-j),tamano-1-grado)*pow(j,grado)*puntos_[grado].gety());
 	    	
 			}
-	         hg=hg+(pow(j,tamano-1)*puntos[tamano-1].getx());
-	         gh=gh+(pow(j,tamano-1)*puntos[tamano-1].gety());
+	         hg=hg+(pow(j,tamano-1)*puntos_[tamano-1].getx());
+	         gh=gh+(pow(j,tamano-1)*puntos_[tamano-1].gety());
 			cout<<"\ninteracion nro "<<j;
 			cout<<"\nvalor de x "<<hg;
 			cout<<"\nvalor de y "<<gh;
