@@ -184,11 +184,23 @@ void mi_Mouse(int button, int state, int x, int y) {
 }
 
 
+<<<<<<< HEAD
 void dibujar(){
 	glClear(GL_COLOR_BUFFER_BIT);
 	botones();
 	area_de_trabajo();/*
 	if(i == 2 && opcion==1) {
+=======
+
+
+
+
+void dibujar(){
+	glClear(GL_COLOR_BUFFER_BIT);
+	botones();	
+	glutSolidSphere(100,100, 100);
+	if(NUMPOINTS == 2 && opcion==1) {
+>>>>>>> parent of 56b56d1... alv
         glColor3f(1.0,1.0,0.0);
         Linea uw(puntos[0], puntos[1]);
            uw.DDA();
@@ -226,7 +238,7 @@ void dibujar(){
     glutSwapBuffers();
 }
 void iniciar(){
-	glClearColor(0,0,0,0);
+	glClearColor(0,0,0,0);//fondo blanco
 	glPointSize(4);//tamaño de punto
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
