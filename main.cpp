@@ -185,6 +185,7 @@ void mi_Mouse(int button, int state, int x, int y) {
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 void dibujar(){
 	glClear(GL_COLOR_BUFFER_BIT);
 	botones();
@@ -197,6 +198,14 @@ void dibujar(){
 
 void dibujar(){
 	glClear(GL_COLOR_BUFFER_BIT);
+=======
+
+
+
+
+void dibujar(){
+	glClear(GL_COLOR_BUFFER_BIT);
+>>>>>>> parent of 56b56d1... alv
 	botones();	
 	glutSolidSphere(100,100, 100);
 	if(NUMPOINTS == 2 && opcion==1) {
