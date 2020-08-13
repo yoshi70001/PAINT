@@ -86,7 +86,7 @@ void Bres(){
 	while(x<=xfinal){
 		//dibujar puntos
 		Punto d(x,y);
-   d.draw();
+   		d.draw();
 		x=x+1;
 		if(p<0){
 			p=p+inE;

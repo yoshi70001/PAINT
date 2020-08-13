@@ -1,9 +1,11 @@
 #include <math.h>
+#include<vector>
 class Punto {
 	private:
   		GLint x=0,y=0;
   		GLfloat r=1.0,g=0.0,b=0.5;
-		float PI = 3.14159265375;	
+		float PI = 3.14159265375;
+		std:: vector<Punto>puntos;	
 	public:
 		Punto(){
 			x = 0; y = 0;//posicion			
@@ -37,12 +39,22 @@ class Punto {
 		
 		
   		void draw() {
+  			glPointSize(5);
   			glBegin(GL_POINTS);
 				glColor3f(r,g,b);// color del punto
   				glVertex2d (x,y);
   			glEnd ();
-  		}
-  		
+  		}/*
+  		void draw(){
+  			glPointSize(5);
+  			glBegin(GL_POINTS);
+			for (unsigned int i = 0; i < puntos.size(); i++)
+			{
+				glColor3f(0.0,0.5,0.6);
+				glVertex2i(puntos[i].getx(), puntos[i].gety());
+			}
+			glEnd();
+		}*/
   		
   		
   		

@@ -9,13 +9,14 @@
 #include <vector>
 
  using namespace std;
-<<<<<<< HEAD
+
  //Punto puntos[20];
-=======
+
  Punto absd[20];
->>>>>>> parent of 38b9b01... nose
   int opcion;
- std:: vector<Punto>puntos;
+ std:: vector<Punto>puntos(100);
+ std:: vector<Curva>cur;
+ std:: vector<Linea>lin;
   int tmpx, tmpy;
   bool isSecond = false;
 
@@ -103,143 +104,106 @@ void mi_Mouse(int button, int state, int x, int y) {
 	
     if(n1<=20 && n1>=0 && n2<=20 && n2>=0){//punto
     		
-    		puntos[i].draw();
+    		opcion=1;
 			
     		i = 0;
+	}
 		
-		
-		
-	}else{
-		
-		if(!isSecond){
-			tmpx=x;
-			tmpy=y;
-			isSecond=true;
-		}else{
-		
-			if(n1<=20 && n1>=0 && n2<=50 && n2>=30){//linea
+	if(n1<=20 && n1>=0 && n2<=50 && n2>=30){//linea
 	
 				opcion=2;
-				//i = 0;
-				if(i == 2 && opcion==1) {
-        			glColor3f(1.0,1.0,0.0);
-        			Linea uw(puntos[0], puntos[1]);
-           			uw.DDA();
-        			i = 0;
-    			}
+				i = 0;
 		
 		
 			}
 			if(n1<=20 && n1>=0 && n2<=80 && n2>=60){//curva
 		
 				opcion=3;
-				//i = 0;
-				if(i == 5 && opcion==2) {
-        			glColor3f(1.0,0.5,0.0);
-        			Curva uwd(puntos,5);
-         			//uwd.bezier();
-         			uwd.castelljau();
-        			i = 0;
-    			}
+				i = 0;
+				
 		
 	
 			}
-			/*if(n1<=20 && n1>=0 && n2<=110 && n2>=90){//poligono
+			if(n1<=20 && n1>=0 && n2<=110 && n2>=90){//poligono
 		
 				opcion=4;
-				//i = 0;
-				if(i == 4 && opcion == 3){
-    				Poligonos ads(puntos,4);
-    				ads.dibujarpoligono();
-    				i = 0;
-				}
+				i = 0;
+				
 		
 		
-			}*/
+			}
 	
 			if(n1<=20 && n1>=0 && n2<=140 && n2>=120){//circulo
 		
-				opcion=4;
-				//i = 0;
-				if(i == 2 && opcion == 4){
-					float distancia=sqrt(abs(pow(puntos[0].getx()-puntos[1].getx(),2)-pow(puntos[0].gety()-puntos[1].gety(),2)));
-					cout<<distancia;
-    				Circulo ads(puntos[0].getx(),puntos[0].gety(),distancia,200);
-    				ads.dibujarcirculo();
-    				cout<<puntos[0].getx()<<" "<<puntos[1].gety()<<"\n";
-    				i = 0;
-				}
+				opcion=5;
+				i = 0;
 		
 		
 			}
-		}
 		
-	}
+		
+	
 	
 	
 	if(n1<=800 && n1>=30){
 		i++;
 	}
     
-    glFlush();
-    glutSwapBuffers();	
-    
   }
 }
 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 void dibujar(){
 	glClear(GL_COLOR_BUFFER_BIT);
 	botones();
-	area_de_trabajo();/*
-	if(i == 2 && opcion==1) {
-=======
+	area_de_trabajo();
+	//glutSolidSphere(100,100, 100);
+	glBegin(GL_POINTS);
+	for (unsigned int i = 0; i < /*20*/puntos.size(); i++)
+	{
+		glColor3f(0.0,0.5,0.6);
+		glVertex2i(puntos[i].getx(), puntos[i].gety());
+	}
+	glEnd();
+	
+	
+	if(i == 1 && opcion==1) {
 
 
-
-
-void dibujar(){
-	glClear(GL_COLOR_BUFFER_BIT);
-=======
-
-
-
-
-void dibujar(){
-	glClear(GL_COLOR_BUFFER_BIT);
->>>>>>> parent of 56b56d1... alv
-	botones();	
-	glutSolidSphere(100,100, 100);
-	if(NUMPOINTS == 2 && opcion==1) {
->>>>>>> parent of 56b56d1... alv
-        glColor3f(1.0,1.0,0.0);
-        Linea uw(puntos[0], puntos[1]);
-           uw.DDA();
-<<<<<<< HEAD
+        Punto p(puntos[0].getx(),puntos[0].gety());
+        
+		puntos.push_back(p);
         i = 0;
-=======
-        NUMPOINTS = 0;
->>>>>>> parent of 38b9b01... nose
+
     }
-    if(i == 5 && opcion==2) {
+	if(i == 2 && opcion==2) {
+
+
+        glColor3f(1.0,1.0,0.0);
+        
+        	Linea uw(puntos[0], puntos[1]);
+           uw.DDA();
+		lin.push_back(uw);
+        i = 0;
+		
+        
+
+    }
+    if(i == 5 && opcion==3) {
         glColor3f(1.0,0.5,0.0);
         Curva uwd(puntos,5);
          //uwd.bezier();
          uwd.castelljau();
+         cur.push_back(uwd);
         i = 0;
     }
-<<<<<<< HEAD
-    if(i == 4 && opcion == 3){
+
+/*    if(i == 4 && opcion == 4){
     	Poligonos ads(puntos,4);
-=======
-    if(NUMPOINTS == 4 && opcion == 3){
-    	Poligonos ads(absd,4);
->>>>>>> parent of 38b9b01... nose
     	ads.dibujarpoligono();
     	i = 0;
-	}
+	}*/
 	if(i == 2 && opcion == 4){
 		float distancia=sqrt(abs(pow(puntos[0].getx()-puntos[1].getx(),2)-pow(puntos[0].gety()-puntos[1].gety(),2)));
 		cout<<distancia;
@@ -254,7 +218,7 @@ void dibujar(){
            uwd.bezier();
          // uwd.castelljau();
         i = 0;
-    }*/
+    }
     glPointSize(2);
     glFlush();
     glutSwapBuffers();

@@ -5,10 +5,10 @@ class Poligonos{
 	Punto matriz[20];
 	int nvertices;
 	public:
-		Poligonos(Punto *pts,int n_){
+		Poligonos(vector<Punto>&puntos,int n_){
 			nvertices=n_;
 			for(int i=0;i<nvertices;i++){
-				matriz[i]=pts[i];
+				matriz[i]=puntos[i];
 			}
 			
 		}
@@ -35,7 +35,7 @@ class Poligonos{
 			
 			
 		}
-		
+		/*
 		void trasladar(Punto *aux){
 			for(int i=0;i<sizeof(aux);i++){
 				matriz[i]=aux[i];
@@ -67,6 +67,6 @@ class Poligonos{
 			}
 			Poligonos fuf(aux,nvertices);
 			fuf.dibujarpoligono();
-		}
+		}*/
 		
 };
