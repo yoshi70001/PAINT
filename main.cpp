@@ -9,7 +9,11 @@
 #include <vector>
 
  using namespace std;
+<<<<<<< HEAD
  //Punto puntos[20];
+=======
+ Punto absd[20];
+>>>>>>> parent of 38b9b01... nose
   int opcion;
  std:: vector<Punto>puntos;
   int tmpx, tmpy;
@@ -213,7 +217,11 @@ void dibujar(){
         glColor3f(1.0,1.0,0.0);
         Linea uw(puntos[0], puntos[1]);
            uw.DDA();
+<<<<<<< HEAD
         i = 0;
+=======
+        NUMPOINTS = 0;
+>>>>>>> parent of 38b9b01... nose
     }
     if(i == 5 && opcion==2) {
         glColor3f(1.0,0.5,0.0);
@@ -222,8 +230,13 @@ void dibujar(){
          uwd.castelljau();
         i = 0;
     }
+<<<<<<< HEAD
     if(i == 4 && opcion == 3){
     	Poligonos ads(puntos,4);
+=======
+    if(NUMPOINTS == 4 && opcion == 3){
+    	Poligonos ads(absd,4);
+>>>>>>> parent of 38b9b01... nose
     	ads.dibujarpoligono();
     	i = 0;
 	}
