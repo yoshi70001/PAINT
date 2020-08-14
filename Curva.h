@@ -53,10 +53,10 @@ class Curva
 		
 		
 public:
-		Curva(vector<Punto>&puntos,int n_){
+		Curva(Punto *pts,int n_){
 			npuntos=n_;
 			for(int i=0;i<npuntos;i++){
-				puntos_[i]=puntos[i];
+				puntos_[i]=pts[i];
 			}
 			dibujarlineas();
 		}
@@ -166,4 +166,5 @@ public:
     
     	
 };
+
 
