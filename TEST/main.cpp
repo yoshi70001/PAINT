@@ -47,6 +47,7 @@ void dibujar(){
 	glClear(GL_COLOR_BUFFER_BIT);
 	botones();
 	area_de_trabajo();
+	guardarpuntos();
 	if(i == 1 && opcion==1) {
 		Punto p(puntos[0].getx(),puntos[0].gety());
 		p.draw();
