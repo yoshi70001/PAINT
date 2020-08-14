@@ -1,5 +1,19 @@
 #include <math.h>
 #include<vector>
+std:: vector<float>px;
+std:: vector<float>py;
+void guardarpuntos(){
+	glPointSize(5);
+	glBegin(GL_POINTS);
+			for (unsigned int i = 0; i < px.size(); i++)
+			{
+				glColor3f(0.0,0.5,0.6);
+				glVertex2i(px[i], py[i]);
+			}
+			glEnd();
+}
+
+
 class Punto {
 	private:
   		GLint x=0,y=0;
@@ -40,6 +54,9 @@ class Punto {
 		
   		void draw() {
   			glPointSize(5);
+  			
+  			px.push_back(x);
+  			py.push_back(y);
   			glBegin(GL_POINTS);
 				glColor3f(r,g,b);// color del punto
   				glVertex2d (x,y);
