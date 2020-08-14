@@ -2,10 +2,12 @@
 #include <GL/glut.h>
 #include "Layout.h"
 #include "Linea.h"
+#include "Tresd.h"
 #include "Curva.h"
 #include <windows.h>
 #include <math.h>
 #include "Poligonos.h"
+#include "Fractales.h"
 #include <vector>
 int i=0;
 int opcion=1;
@@ -48,6 +50,9 @@ void dibujar(){
 	botones();
 	area_de_trabajo();
 	guardarpuntos();
+	
+//	Reshape(800,800);
+	
 	if(i == 1 && opcion==1) {
 		Punto p(puntos[0].getx(),puntos[0].gety());
 		p.draw();
@@ -73,15 +78,13 @@ void dibujar(){
     	ads.dibujarpoligono();
     	i = 0;
 	}*/
-	if(i == 2 && opcion == 4){
-		//falta hacer la funcion circulo
+	if(i == 4 && opcion == 4){
+		cuadrilatero(puntos[0],puntos[1],puntos[2],puntos[3]);
     	i = 0;
 	}
-	if(i == 4 && opcion==5) {
+	if(i == 1 && opcion==5) {
         glColor3f(1.0,0.5,0.0);
-        Curva uwd(puntos,5);
-           uwd.bezier();
-         // uwd.castelljau();
+        barnsleyFern();
         i = 0;
     }
     glPointSize(2);
@@ -94,7 +97,6 @@ void iniciar(){
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	gluOrtho2D(800,0,800,0);
-	
 }
 
 
@@ -110,6 +112,7 @@ int main(int argc, char** argv) {
 		glutMouseFunc(mi_Mouse);
 		glutDisplayFunc(dibujar);
 		iniciar();
+		glutReshapeFunc (myReshape);
 		glutMainLoop();
 	
 	
