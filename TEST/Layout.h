@@ -65,4 +65,7 @@ void botones(){
 	glEnd();
 	
 }
+void buton(){
+	
+}
 

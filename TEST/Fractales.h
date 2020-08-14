@@ -1,5 +1,5 @@
 #include <time.h>
-int points=5000;
+int points=500000;
 int xf,yf; 
 void mouseMove(int x, int y)
 {
@@ -66,6 +66,7 @@ void barnsleyFern(void)
 	   if(i>100)
 	   {
 		  /*Plot new point*/
+		  glPointSize(1);
 		  glBegin(GL_POINTS);
                glVertex2fv(newPoint);
           glEnd();
